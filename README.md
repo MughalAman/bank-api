@@ -1,2 +1,2 @@
 # bank-api
- banking API made in js that uses mongodb, includes python cli for banking
+ banking API made in javascript that uses mongodb, includes python cli app for banking
