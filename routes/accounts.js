@@ -13,6 +13,20 @@ router.get('/admin', async (req, res) => {
     }
 });
 
+router.get('/check/:address', async (req, res) => {
+    try {
+        const account = await Account.findOne({accountAddress: req.params.address});
+
+        if (account) {
+            res.json(true);
+        } else {
+            res.json(false);
+        }
+    } catch (error) {
+        res.json({error: error});
+    }
+});
+
 router.get('/', async (req, res) => {
     try {
         res.json("Nothing to see here!");
@@ -20,6 +34,7 @@ router.get('/', async (req, res) => {
         res.json({error: error});
     }
 });
+
 
 //GET AN ACCOUNT
 router.get('/:userName', async (req, res) => {
